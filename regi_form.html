@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ITI College Registration Form</title>
+      <link rel="stylesheet" href="college.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+        .container {
+            width: 60%;
+            margin: auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+        h2 {
+            text-align: center;
+            color: darkblue;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+        input[type="radio"], input[type="checkbox"] {
+            width: auto;
+        }
+        .btn {
+            background-color: darkblue;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .btn:hover {
+            background-color: green;
+        }
+    </style>
+    
+    <script>
+function validateForm() {
+
+    let mobile = document.getElementById("mobile").value;
+    let email = document.getElementById("email").value;
+    let percentage = document.getElementById("percentage").value;
+    let trade = document.getElementById("trade").value;
+    let terms = document.getElementById("terms").checked;
+
+    let mobilePattern = /^[0-9]{10}$/;
+    let emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+    if (!mobilePattern.test(mobile)) {
+        alert("Invalid Mobile Number! Enter 10 digits.");
+        return false;
+    }
+
+    if (email != "" && !emailPattern.test(email)) {
+        alert("Invalid Email Address!");
+        return false;
+    }
+
+    if (percentage < 0 || percentage > 100) {
+        alert("10th Percentage must be between 0 and 100!");
+        return false;
+    }
+
+    if (trade == "Select Trade") {
+        alert("Please select a Trade!");
+        return false;
+    }
+
+    if (!terms) {
+        alert("You must agree to Terms & Conditions!");
+        return false;
+    }
+
+    alert("Form Submitted Successfully!");
+    return true;
+}
+</script>
+    
+    
+</head>
+<body>
+
+     <div class="header">
+	<header class="site-h">
+				<div class="logo-c">
+				<img class="logo" src="images/logo.png">
+				</div>
+				<div class="site-n">
+				<h1>Govt. Industrial Training Institute Pandariya</h1>
+				<h4>District Kabirdham C.G. 491559</h4>
+				</div>
+				<div class="logo-c"> 
+				<img class="logo" src="images/logo1.png">
+				</div>
+	</header>
+	
+
+    	<table class="t1">
+    	<tr>
+    		    <td><a href="index.html">Home</a></td>
+                <td><a href="About Us.html">About Us</a></td>
+                <td><a href="Course.html">Course</a></td>
+                <td><a href="Contact.html">Contact</a></td>
+                <td><a href="regi_form.html">Registration</a></td>
+				<td><a href="Instructor.html">Instructor</a></td>
+                <td><a href="Admmision.html">Admmision</a></td>
+                
+    	</tr>
+    	</table>
+   
+</div>
+
+ <div class="images-container">
+			<img src="images/copa.png" class="slider">
+		</div>
+
+    <div class="text-block">
+      <p class="text">Registration</p>
+    </div>
+
+
+
+
+<div class="container">
+    <h2>ITI College Registration Form</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <label>Full Name:</label>
+        <input type="text" placeholder="Enter Full Name" required>
+
+        <label>Father's Name:</label>
+        <input type="text" placeholder="Enter Father's Name" required>
+
+        <label>Mother's Name:</label>
+        <input type="text" placeholder="Enter Mother's Name" required>
+
+        <label>Date of Birth:</label>
+        <input type="date" required>
+
+        <label>Gender:</label><br>
+        <input type="radio" name="gender"> Male
+        <input type="radio" name="gender"> Female
+        <input type="radio" name="gender"> Other
+        <br><br>
+
+        <label>Category:</label>
+        <select>
+            <option>Select Category</option>
+            <option>General</option>
+            <option>OBC</option>
+            <option>SC</option>
+            <option>ST</option>
+        </select>
+
+        <label>Mobile Number:</label>
+        <input type="tel" id="mobile" placeholder="Enter Mobile Number" required>
+
+        <label>Email:</label>
+        <input type="email" id="email" placeholder="Enter Email">
+
+        <label>Address:</label>
+        <textarea placeholder="Enter Full Address"></textarea>
+
+        <label>10th Percentage:</label>
+        <input type="number" id="percentage" placeholder="Enter 10th %" required>
+
+        <label>12th Percentage (If Any):</label>
+        <input type="number" id="percentage" placeholder="Enter 12th %">
+
+        <label>Select Trade:</label>
+        <select id="trade" required>
+            <option>Select Trade</option>
+            <option>Electrician</option>
+            <option>Fitter</option>
+            <option>Welder</option>
+            <option>Computer Operator</option>
+            <option>Mechanic Diesel</option>
+        </select>
+
+        <label>Upload Photo:</label>
+        <input type="file">
+
+        <label>Upload Signature:</label>
+        <input type="file">
+
+        <input type="checkbox" id="terms"> I agree to the terms and conditions
+        <br><br>
+
+        <button type="submit" class="btn">Submit Registration</button>
+
+    </form>
+</div>
+
+</div>
+<div class="footer">
+&copy Govt. ITI College |  All Right Reserved
+</div>
+</body>
+</html>
